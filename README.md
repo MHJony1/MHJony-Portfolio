@@ -13,6 +13,13 @@
 ### 🌌 The Digital Architect
 I am a **Full-Stack Developer** focused on engineering high-performance, scalable digital solutions. I specialize in turning complex logic into seamless, pixel-perfect user experiences using the **MERN Stack** and **Next.js**. My approach blends technical precision with cinematic design aesthetics.
 
+### 🌐 Live Command Center
+<p align="center">
+  <a href="https://mh-jony-portfolio.vercel.app/">
+    <img src="https://img.shields.io/badge/VISIT%20MY%20PORTFOLIO-F43F5E?style=for-the-badge&logo=vercel&logoColor=white" />
+  </a>
+</p>
+
 ---
 
 ### 🛠️ Tech Universe
@@ -29,7 +36,7 @@ I am a **Full-Stack Developer** focused on engineering high-performance, scalabl
     </td>
     <td align="center" width="33%">
       <img src="https://img.shields.io/badge/DATABASE-10B981?style=for-the-badge&logo=mongodb&logoColor=white" /><br/>
-      <sub>MongoDB • Mongoose • Postgre</sub>
+      <sub>MongoDB • Mongoose</sub>
     </td>
   </tr>
 </table>
@@ -42,10 +49,10 @@ I am a **Full-Stack Developer** focused on engineering high-performance, scalabl
 
 | Project Discovery | Stack | Live Architecture |
 | :--- | :---: | :--- |
-|  **Tilecraft Gallery** | `Next.js` `Hero UI` | [Deploy View →](https://a-8-tiles-gallery-project.vercel.app/) |
-|  **Dragon News** | `Next.js` `Better Auth` | [Deploy View →](https://the-dragon-news-project-alpha.vercel.app/) |
-|  **DigiTools** | `Tailwind` `JSON` | [Deploy View →](https://digitools-platfrom-12.netlify.app/) |
-|  **Ph-Play-Store** | `React` `API` | [Deploy View →](https://ph-play-store-mh.netlify.app/) |
+| **Tilecraft Gallery** | `Next.js` `Hero UI` | [Deploy View →](https://a-8-tiles-gallery-project.vercel.app/) |
+| **Dragon News** | `Next.js` `Firebase` | [Deploy View →](https://the-dragon-news-project-alpha.vercel.app/) |
+| **DigiTools** | `React` `Tailwind` | [Deploy View →](https://digitools-platfrom-12.netlify.app/) |
+| **KeenKeeper** | `React` `Firebase` | [Deploy View →](https://a-7-keen-keeper-project.netlify.app/) |
 
 </div>
 
@@ -53,13 +60,13 @@ I am a **Full-Stack Developer** focused on engineering high-performance, scalabl
 
 ### 📊 Vital Statistics
 
-<<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=APNAR_USERNAME_E_JA_ACHE&show_icons=true&theme=transparent&title_color=60A5FA&text_color=FFFFFF&icon_color=F43F5E&border_color=60A5FA&hide_border=false" width="48%" />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=APNAR_USERNAME_E_JA_ACHE&theme=transparent&fire=F43F5E&ring=60A5FA&sideNums=FFFFFF&sideLabels=60A5FA&dates=FFFFFF" width="48%" />
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=MHJony1&show_icons=true&theme=transparent&title_color=60A5FA&text_color=FFFFFF&icon_color=F43F5E&border_color=60A5FA&hide_border=false" width="48%" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=MHJony1&theme=transparent&fire=F43F5E&ring=60A5FA&sideNums=FFFFFF&sideLabels=60A5FA&dates=FFFFFF" width="48%" />
 </p>
 
 <p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=APNAR_USERNAME_E_JA_ACHE&theme=react-dark&bg_color=0D1117&color=60A5FA&line=F43F5E&point=FFFFFF&area=true&hide_border=true" width="100%" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=MHJony1&theme=react-dark&bg_color=0D1117&color=60A5FA&line=F43F5E&point=FFFFFF&area=true&hide_border=true" width="100%" />
 </p>
 
 ---
@@ -85,7 +92,7 @@ I am a **Full-Stack Developer** focused on engineering high-performance, scalabl
 </p>
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=mhjony-dev&color=F43F5E&style=flat-square&label=SYSTEM+VISITS" />
+  <img src="https://komarev.com/ghpvc/?username=MHJony1&color=F43F5E&style=flat-square&label=SYSTEM+VISITS" />
 </p>
 
 <p align="center">
