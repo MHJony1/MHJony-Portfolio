@@ -42,10 +42,10 @@ I am a **Full-Stack Developer** focused on engineering high-performance, scalabl
 
 | Project Discovery | Stack | Live Architecture |
 | :--- | :---: | :--- |
-| 💎 **Tilecraft Gallery** | `Next.js` `Auth` | [Deploy View →](https://github.com/mhjony-dev/tilecraft-gallery) |
-| 🍔 **Meal Hub** | `React` `Vite` | [Deploy View →](https://github.com/mhjony-dev/meal-hub) |
-| 🛠️ **DigiTools** | `Tailwind` `JSON` | [Deploy View →](https://github.com/mhjony-dev/digitools) |
-| 🌍 **English Janala** | `Vanilla JS` `API` | [Deploy View →](https://github.com/mhjony-dev/english-janala) |
+|  **Tilecraft Gallery** | `Next.js` `Hero UI` | [Deploy View →](https://a-8-tiles-gallery-project.vercel.app/) |
+|  **Dragon News** | `Next.js` `Better Auth` | [Deploy View →](https://the-dragon-news-project-alpha.vercel.app/) |
+|  **DigiTools** | `Tailwind` `JSON` | [Deploy View →](https://digitools-platfrom-12.netlify.app/) |
+|  **Ph-Play-Store** | `React` `API` | [Deploy View →](https://ph-play-store-mh.netlify.app/) |
 
 </div>
 
@@ -53,13 +53,13 @@ I am a **Full-Stack Developer** focused on engineering high-performance, scalabl
 
 ### 📊 Vital Statistics
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=mhjony-dev&show_icons=true&theme=transparent&title_color=60A5FA&text_color=FFFFFF&icon_color=F43F5E&border_color=60A5FA&hide_border=false" width="48%" />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=mhjony-dev&theme=transparent&fire=F43F5E&ring=60A5FA&sideNums=FFFFFF&sideLabels=60A5FA&dates=FFFFFF" width="48%" />
+<<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=APNAR_USERNAME_E_JA_ACHE&show_icons=true&theme=transparent&title_color=60A5FA&text_color=FFFFFF&icon_color=F43F5E&border_color=60A5FA&hide_border=false" width="48%" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=APNAR_USERNAME_E_JA_ACHE&theme=transparent&fire=F43F5E&ring=60A5FA&sideNums=FFFFFF&sideLabels=60A5FA&dates=FFFFFF" width="48%" />
 </p>
 
 <p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=mhjony-dev&theme=react-dark&bg_color=0D1117&color=60A5FA&line=F43F5E&point=FFFFFF&area=true&hide_border=true" width="100%" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=APNAR_USERNAME_E_JA_ACHE&theme=react-dark&bg_color=0D1117&color=60A5FA&line=F43F5E&point=FFFFFF&area=true&hide_border=true" width="100%" />
 </p>
 
 ---
