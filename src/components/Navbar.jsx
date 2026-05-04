@@ -144,7 +144,7 @@ const Navbar = () => {
           )}
 
           <Link
-            href="/hire"
+            href="#contact"
             className="hidden sm:inline-flex items-center justify-center px-5 py-2 rounded-xl font-bold text-[10px] md:text-xs text-white bg-linear-to-r from-blue-600 to-rose-500 shadow-lg"
           >
             Hire Me
@@ -192,7 +192,7 @@ const Navbar = () => {
               ))}
               <hr className="border-white/5 my-2" />
               <Link
-                href="/hire"
+                href="#contact"
                 onClick={() => setIsMenuOpen(false)}
                 className="w-full text-center py-4 rounded-xl font-black text-white bg-linear-to-r from-blue-600 to-rose-500 shadow-xl"
               >
