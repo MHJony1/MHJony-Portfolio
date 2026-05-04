@@ -8,9 +8,10 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import TiltCard from '@/components/TiltCard';
 
-// ✅ Fixed Imports: Sidebar image (a999b6.png) onujayi sothik nam bebohar kora hoyeche
+// ✅ Fixed Imports
 import tileGalleryImg from '@/assets/tilecraft.png';
 import dragonNewsImg from '@/assets/dragonnews.png';
+import digiToolsImg from '@/assets/digitools.png';
 
 const ProjectsPage = () => {
   const [filter, setFilter] = useState('All');
@@ -39,14 +40,14 @@ const ProjectsPage = () => {
       repoLink: 'https://github.com/MHJony1/The-Dragon-News-Project',
     },
     {
-      title: 'Personal Portfolio V2',
-      category: 'Frontend',
+      title: 'Modern Digitools Ecommerce',
+      category: 'Frontend', // ✅ এটি মিসিং ছিল, যোগ করা হয়েছে
       description:
-        'High-performance developer portfolio with cinematic animations and glassmorphism design.',
-      tags: ['Next.js', 'Framer Motion', 'GSAP'],
-      image: projPortfolioImg,
-      liveLink: 'https://mhjony.vercel.app/', // Updated to your likely domain
-      repoLink: 'https://github.com/MHJony1',
+        'A comprehensive digital tools & productivity software platform. Browse, purchase, and use powerful digital utilities designed for developers and creators.',
+      tags: ['React', 'JavaScript', 'Netlify'],
+      image: digiToolsImg,
+      liveLink: 'https://digitools-platfrom-12.netlify.app/',
+      repoLink: 'https://github.com/MHJony1/A-6-DigiTools-Platform',
     },
     {
       title: 'KeenKeeper Social',
