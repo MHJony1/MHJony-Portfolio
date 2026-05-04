@@ -73,13 +73,13 @@ I am a **Full-Stack Developer** focused on engineering high-performance, scalabl
 
 ### 📡 Reach Out
 <p align="center">
-  <a href="https://linkedin.com/in/mhjony-dev">
+  <a href="https://www.linkedin.com/in/mahmudul-hasan-jony12/">
     <img src="https://img.shields.io/badge/LINKEDIN-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
   </a>
-  <a href="https://github.com/mhjony-dev">
+  <a href="https://github.com/MHJony1">
     <img src="https://img.shields.io/badge/GITHUB-100000?style=for-the-badge&logo=github&logoColor=white" />
   </a>
-  <a href="mailto:mhjony.dev@gmail.com">
+  <a href="mailto:jonym7293@gamil.com">
     <img src="https://img.shields.io/badge/EMAIL-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
   </a>
 </p>
