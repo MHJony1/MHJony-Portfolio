@@ -56,8 +56,8 @@ export default function Contact() {
         />
       ),
       title: 'Call',
-      value: '01879785495',
-      link: 'tel:01879785495',
+      value: '01890305043',
+      link: 'tel:01890305043',
       label: 'Call me',
       hoverColor: 'hover:border-blue-400',
     },
