@@ -7,8 +7,8 @@ import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import TiltCard from './TiltCard';
-import Magnetic from './Magnetic';
 
+import playNest from '@/assets/playnest.png';
 import tileGallery from '@/assets/tilecraft.png';
 import dragonNews from '@/assets/dragonnews.png';
 import digiTools from '@/assets/digitools.png';
@@ -22,11 +22,24 @@ const Projects = () => {
   const sectionRef = useRef(null);
   const [currentPage, setCurrentPage] = useState(1);
 
+  const brandGradient = 'from-[#2563eb] via-[#a855f7] to-[#f43f5e]';
+
   const allProjects = [
     {
-      title: 'Tilecraft Gallery',
+      title: 'PlayNest',
+      subtitle: 'Sports Facility Booking Platform',
       description:
-        'Tilecraft Gallery is a production-grade architectural showcase engineered for seamless discovery and high-performance management of premium tiles. Built with Next.js and MongoDB, it features a secure authentication layer via BetterAuth and a sophisticated, fluid interface powered by HeroUI.',
+        'Full-stack booking platform for seamless discovery and real-time slot reservation across premium sports arenas. JWT-secured with session-based auth.',
+      tags: ['Next.js', 'MongoDB', 'BetterAuth', 'JWT'],
+      image: playNest,
+      liveLink: 'https://a-9-sport-nest-project.vercel.app',
+      repoLink: 'https://github.com/MHJony1/A-9-SportNest-Project',
+    },
+    {
+      title: 'Tilecraft Gallery',
+      subtitle: 'Architectural Tile Showcase',
+      description:
+        'Production-grade architectural showcase for premium tile discovery and management. Secure auth layer via BetterAuth with a fluid HeroUI interface.',
       tags: ['Next.js', 'Framer Motion', 'BetterAuth', 'MongoDB'],
       image: tileGallery,
       liveLink: 'https://a-8-tiles-gallery-project.vercel.app/',
@@ -34,26 +47,29 @@ const Projects = () => {
     },
     {
       title: 'The Dragon News',
+      subtitle: 'Dynamic News Portal',
       description:
-        'Dragon News is a high-performance, dynamic news portal engineered to deliver a seamless and scalable content experience. It features a sophisticated secure authentication system with social login integration and a robust architecture for real-time news management.',
+        'High-performance news portal with sophisticated authentication, social login integration, and robust real-time content management architecture.',
       tags: ['Next.js', 'Tailwind', 'Firebase', 'Vercel'],
       image: dragonNews,
       liveLink: 'https://the-dragon-news-project-alpha.vercel.app/category/01',
       repoLink: 'https://github.com/MHJony1/The-Dragon-News-Project',
     },
     {
-      title: 'KeenKeeper — Social Media',
+      title: 'KeenKeeper',
+      subtitle: 'Social Relationship Manager',
       description:
-        'Your personal shelf of meaningful connections. A relationship management app to browse, tend, and nurture the friendships that matter most.',
+        'Your personal shelf of meaningful connections. Browse, tend, and nurture the friendships and relationships that matter most.',
       tags: ['React', 'Firebase', 'Netlify'],
       image: keenKeeper,
       liveLink: 'https://a-7-keen-keeper-project.netlify.app/',
       repoLink: 'https://github.com/MHJony1/A-7-Keen-Keeper',
     },
     {
-      title: 'Modern Digitools Ecommerce',
+      title: 'Modern Digitools',
+      subtitle: 'Ecommerce Platform',
       description:
-        'A comprehensive digital tools & productivity software platform. Browse, purchase, and use powerful digital utilities designed for developers and creators.',
+        'Comprehensive digital tools and productivity software platform for developers and creators to browse, purchase, and use powerful utilities.',
       tags: ['React', 'JavaScript', 'Netlify'],
       image: digiTools,
       liveLink: 'https://digitools-platfrom-12.netlify.app/',
@@ -93,81 +109,110 @@ const Projects = () => {
   return (
     <section
       ref={sectionRef}
-      className="max-w-[1400px] mx-auto px-4 sm:px-6 py-[80px] sm:py-[120px] relative overflow-hidden"
+      className="max-w-360 mx-auto px-4 sm:px-8 md:px-12 py-20 sm:py-25 relative overflow-hidden"
       id="projects"
     >
-      {/* Background Decorative Glow */}
+      {/* Background Decorative Theme Glow */}
       <div className="absolute top-1/4 -right-20 w-96 h-96 bg-blue-600/5 blur-[120px] -z-10" />
       <div className="absolute bottom-1/4 -left-20 w-96 h-96 bg-rose-500/5 blur-[120px] -z-10" />
 
-      <div className="text-center mb-20 projects-title">
-        <span className="bg-gradient-to-r from-blue-500 to-rose-400 bg-clip-text text-transparent font-bold tracking-[0.4em] uppercase text-[10px]">
+      {/* Section Header */}
+      <div className="text-center mb-16 projects-title">
+        <span
+          className={`bg-linear-to-r ${brandGradient} bg-clip-text text-transparent font-bold tracking-[0.4em] uppercase text-[13px]`}
+        >
           Selected Works
         </span>
-        <h2 className="text-4xl md:text-5xl font-bold mt-3 text-on-background">
-          Recent <span className="bg-gradient-to-r from-blue-600 to-rose-500 bg-clip-text text-transparent">Projects</span>
+        <h2 className="text-3xl md:text-5xl font-bold mt-2 text-white tracking-tight">
+          Recent{' '}
+          <span
+            className={`bg-linear-to-r ${brandGradient} bg-clip-text text-transparent`}
+          >
+            Projects
+          </span>
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 projects-grid">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-335 mx-auto">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentPage}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.5, ease: 'easeInOut' }}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.4, ease: 'easeInOut' }}
             className="contents"
           >
             {displayedProjects.map((project, index) => (
               <div key={project.title} className="project-card-wrap h-full">
                 <TiltCard className="h-full">
-                  <div className="h-[480px] relative rounded-[40px] overflow-hidden group cursor-default shadow-2xl border border-white/5 bg-surface-container-low transition-all duration-500 hover:border-blue-500/30">
-                    
-                    {/* Animated Border Glow on Hover */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-rose-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0" />
+                  <div className="flex flex-col h-full rounded-[22px] overflow-hidden group cursor-default border border-white/5 bg-[#0d121f]/50 backdrop-blur-md transition-all duration-500 hover:border-rose-500/20 hover:shadow-2xl hover:shadow-rose-950/10">
+                    {/* ── Image Section ── */}
+                    <div className="relative w-full overflow-hidden aspect-video">
+                      <div
+                        className={`absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r ${brandGradient} z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                      />
 
-                    <div className="absolute inset-0 z-0">
                       <Image
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover object-top transition-transform duration-[2s] group-hover:scale-105"
+                        className="w-full h-full object-cover object-top transition-transform duration-[1.5s] ease-out group-hover:scale-[1.02]"
                         fill
-                        sizes="(max-width: 768px) 100vw, 50vw"
+                        sizes="(max-width: 768px) 100vw, 45vw"
                         priority={index < 2}
                       />
+
+                      <div className="absolute inset-0 bg-linear-to-b from-black/5 via-transparent to-black/40 z-10" />
+
+                      {/* Live Badge */}
+                      <div className="absolute top-3.5 right-3.5 z-20">
+                        <span className="flex items-center gap-1 px-2.5 py-1 bg-black/60 backdrop-blur-md rounded-full text-[8px] font-bold uppercase tracking-wider text-white/90 border border-white/10">
+                          <span className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse" />
+                          Live
+                        </span>
+                      </div>
                     </div>
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent z-10" />
+                    {/* ── Content Section ── */}
+                    <div className="flex flex-col flex-1 p-5 sm:p-6 justify-between">
+                      <div>
+                        {/* Tags */}
+                        <div className="flex flex-wrap gap-1.5 mb-3.5">
+                          {project.tags.slice(0, 4).map((tag, tIndex) => (
+                            <span
+                              key={tIndex}
+                              className="px-2.5 py-0.5 bg-white/5 rounded-md text-[8px] font-semibold uppercase tracking-wider text-white/50 border border-white/5"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
 
-                    <div className="absolute inset-0 flex flex-col justify-end p-8 md:p-10 z-20">
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {project.tags.map((tag, tIndex) => (
-                          <span
-                            key={tIndex}
-                            className="px-3 py-1 bg-white/5 backdrop-blur-md rounded-lg text-[9px] font-bold uppercase text-blue-200/80 border border-white/10"
-                          >
-                            {tag}
-                          </span>
-                        ))}
+                        {/* Title & Subtitle */}
+                        <div className="mb-2.5">
+                          <h4 className="text-md sm:text-lg font-bold text-white group-hover:text-transparent group-hover:bg-linear-to-r group-hover:from-[#2563eb] group-hover:to-[#f43f5e] group-hover:bg-clip-text transition-all duration-300">
+                            {project.title}
+                          </h4>
+                          <p className="text-white/30 text-[9px] font-medium uppercase tracking-wider mt-0.5">
+                            {project.subtitle}
+                          </p>
+                        </div>
+
+                        {/* Description */}
+                        <p className="text-white/45 text-xs leading-relaxed mb-4 line-clamp-3 group-hover:text-white/60 transition-colors duration-500">
+                          {project.description}
+                        </p>
                       </div>
 
-                      <h4 className="text-2xl md:text-3xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors duration-300">
-                        {project.title}
-                      </h4>
-
-                      <p className="text-white/60 text-sm line-clamp-2 mb-6 group-hover:text-white/80 transition-all duration-500">
-                        {project.description}
-                      </p>
-
-                      <div className="flex gap-4">
+                      {/* Action Buttons */}
+                      <div className="flex gap-2.5 pt-1">
                         <Link
                           href={project.liveLink}
                           target="_blank"
-                          className="bg-gradient-to-r from-blue-600 to-rose-500 text-white px-6 py-3 rounded-2xl font-bold text-[11px] uppercase tracking-wider flex items-center gap-2 hover:brightness-110 transition-all duration-300 shadow-lg shadow-blue-600/20 active:scale-95"
+                          className={`flex-1 flex items-center justify-center gap-1.5 bg-linear-to-r ${brandGradient} text-white px-4 py-2 rounded-lg font-bold text-[9px] uppercase tracking-wider hover:brightness-110 transition-all duration-300 shadow-md active:scale-[0.98]`}
                         >
                           Live Demo
-                          <span className="material-symbols-outlined text-sm">
+                          <span className="material-symbols-outlined text-xs">
                             arrow_outward
                           </span>
                         </Link>
@@ -175,9 +220,12 @@ const Projects = () => {
                         <Link
                           href={project.repoLink}
                           target="_blank"
-                          className="bg-white/5 backdrop-blur-md text-white px-6 py-3 rounded-2xl font-bold text-[11px] uppercase tracking-wider border border-white/10 hover:bg-white/10 hover:border-rose-500/30 transition-all duration-300 active:scale-95"
+                          className="flex items-center justify-center gap-1 bg-white/5 backdrop-blur-md text-white/70 px-4 py-2 rounded-lg font-bold text-[9px] uppercase tracking-wider border border-white/5 hover:bg-white/10 hover:text-white hover:border-rose-500/20 transition-all duration-300 active:scale-[0.98]"
                         >
-                          GitHub
+                          <span className="material-symbols-outlined text-xs">
+                            code
+                          </span>
+                          Source
                         </Link>
                       </div>
                     </div>
@@ -189,7 +237,47 @@ const Projects = () => {
         </AnimatePresence>
       </div>
 
-      {/* Pagination Placeholder - Logic maintained */}
+      {/* Pagination Controls */}
+      {totalPages > 1 && (
+        <div className="flex justify-center items-center mt-12 gap-2.5 relative z-30">
+          <button
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+            className="px-3.5 py-2 bg-white/5 backdrop-blur-md border border-white/5 rounded-lg text-[9px] font-bold uppercase tracking-wider text-white/80 hover:bg-white/10 hover:border-white/20 transition-all duration-300 disabled:opacity-20 disabled:cursor-not-allowed active:scale-95 flex items-center gap-1"
+          >
+            <span className="material-symbols-outlined text-xs">west</span>
+            Prev
+          </button>
+
+          <div className="flex gap-1.5">
+            {Array.from({ length: totalPages }, (_, index) => {
+              const pageNumber = index + 1;
+              return (
+                <button
+                  key={pageNumber}
+                  onClick={() => handlePageChange(pageNumber)}
+                  className={`w-8 h-8 flex items-center justify-center rounded-lg font-bold text-xs transition-all duration-300 border ${
+                    currentPage === pageNumber
+                      ? `bg-linear-to-r ${brandGradient} text-white border-transparent shadow-md scale-105`
+                      : 'bg-white/5 backdrop-blur-md text-white/40 border-white/5 hover:bg-white/10 hover:text-white'
+                  }`}
+                >
+                  {pageNumber}
+                </button>
+              );
+            })}
+          </div>
+
+          <button
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+            className="px-3.5 py-2 bg-white/5 backdrop-blur-md border border-white/5 rounded-lg text-[9px] font-bold uppercase tracking-wider text-white/80 hover:bg-white/10 hover:border-white/20 transition-all duration-300 disabled:opacity-20 disabled:cursor-not-allowed active:scale-95 flex items-center gap-1"
+          >
+            Next
+            <span className="material-symbols-outlined text-xs">east</span>
+          </button>
+        </div>
+      )}
     </section>
   );
 };
