@@ -72,7 +72,6 @@ const About = () => {
 
       {/* Main Grid: Desktop-e ager layout (lg:grid-cols-12) */}
       <div className="grid lg:grid-cols-12 gap-10 lg:gap-24 items-center relative z-10">
-        
         {/* Left Side: Content (Desktop-e 6 column) */}
         <div className="lg:col-span-6 space-y-10 flex flex-col items-center lg:items-start text-center lg:text-left">
           <div className="about-heading space-y-4">
@@ -115,11 +114,15 @@ const About = () => {
 
             <div className="about-content-item pt-4">
               <a
-                href="/resume.pdf"
-                download="Mahmudul_Hasan_Jony_Resume"
-                className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-rose-500 text-white font-bold rounded-2xl overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-lg shadow-blue-500/20"
+                href="https://drive.google.com/file/d/1MWwQlhS1jzlwYohlr42FlmAa5FAyapX3/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative inline-flex items-center gap-3 px-8 py-4 bg-linear-to-r from-blue-600 to-rose-500 text-white font-bold rounded-2xl overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-lg shadow-blue-500/20"
               >
-                <div className="absolute inset-0 bg-white/20 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500"></div>
+                {/* Hover overlay animation */}
+                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+
+                {/* Button content */}
                 <span className="relative flex items-center gap-2">
                   Download Resume
                   <Download
@@ -135,10 +138,9 @@ const About = () => {
         {/* Right Side: Professional Bento Grid (Desktop-e 6 column) */}
         <div className="lg:col-span-6 w-full h-full">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full h-full">
-            
             {/* Top Wide Card - Desktop layout logic untouched */}
-            <div className="bento-item sm:col-span-2 glass-card p-8 rounded-[32px] border border-white/5 hover:border-blue-500/30 transition-all duration-500 flex items-center justify-between group overflow-hidden relative min-h-[160px] bg-surface-container-low/40 backdrop-blur-xl">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-rose-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <div className="bento-item sm:col-span-2 glass-card p-8 rounded-4xl border border-white/5 hover:border-blue-500/30 transition-all duration-500 flex items-center justify-between group overflow-hidden relative min-h-40 bg-surface-container-low/40 backdrop-blur-xl">
+              <div className="absolute inset-0 bg-linear-to-br from-blue-600/10 to-rose-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               <div className="relative z-10 text-left">
                 <h4 className="text-2xl sm:text-3xl font-black text-on-background mb-2 group-hover:text-blue-400 transition-colors">
                   Problem Solver
@@ -153,7 +155,7 @@ const About = () => {
             </div>
 
             {/* Bottom Cards */}
-            <div className="bento-item glass-card p-6 rounded-[32px] border border-white/5 hover:border-blue-500/30 transition-all duration-500 flex flex-col justify-center items-center text-center group min-h-[180px] relative overflow-hidden bg-surface-container-low/40 backdrop-blur-xl">
+            <div className="bento-item glass-card p-6 rounded-4xl border border-white/5 hover:border-blue-500/30 transition-all duration-500 flex flex-col justify-center items-center text-center group min-h-[180px] relative overflow-hidden bg-surface-container-low/40 backdrop-blur-xl">
               <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="w-16 h-16 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500 border border-blue-500/20">
                 <span className="material-symbols-outlined text-3xl text-blue-400">
@@ -168,7 +170,7 @@ const About = () => {
               </p>
             </div>
 
-            <div className="bento-item glass-card p-6 rounded-[32px] border border-white/5 hover:border-rose-500/30 transition-all duration-500 flex flex-col justify-center items-center text-center group min-h-[180px] relative overflow-hidden bg-surface-container-low/40 backdrop-blur-xl">
+            <div className="bento-item glass-card p-6 rounded-4xl border border-white/5 hover:border-rose-500/30 transition-all duration-500 flex flex-col justify-center items-center text-center group min-h-[180px] relative overflow-hidden bg-surface-container-low/40 backdrop-blur-xl">
               <div className="absolute inset-0 bg-gradient-to-b from-rose-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="w-16 h-16 rounded-2xl bg-rose-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500 border border-rose-500/20">
                 <span className="material-symbols-outlined text-3xl text-rose-400">
@@ -182,7 +184,6 @@ const About = () => {
                 Performance
               </p>
             </div>
-
           </div>
         </div>
       </div>
