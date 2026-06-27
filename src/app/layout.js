@@ -1,117 +1,300 @@
-import { Plus_Jakarta_Sans, Inter } from "next/font/google";
-import Script from "next/script";
-import "./globals.css";
-import { Providers } from "./providers";
-import SmoothScroll from "@/components/SmoothScroll";
-import ScrollButtons from "@/components/ScrollButtons";
-import PageLoader from "@/components/PageLoader";
-import CustomCursor from "@/components/CustomCursor";
-import ScrollProgress from "@/components/ScrollProgress";
+import { Plus_Jakarta_Sans, Inter } from 'next/font/google';
+import Script from 'next/script';
+import './globals.css';
+import { Providers } from './providers';
+import SmoothScroll from '@/components/SmoothScroll';
+import ScrollButtons from '@/components/ScrollButtons';
+import PageLoader from '@/components/PageLoader';
+import CustomCursor from '@/components/CustomCursor';
+import ScrollProgress from '@/components/ScrollProgress';
 
+// ──────────────────────────────────────────────
+// 📝 FONTS OPTIMIZATION
+// ──────────────────────────────────────────────
 const plusJakartaSans = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  variable: "--font-plus-jakarta-sans",
+  subsets: ['latin'],
+  variable: '--font-plus-jakarta-sans',
+  display: 'swap',
+  weight: ['500', '600', '700', '800'],
 });
 
 const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+  weight: ['300', '400', '500', '600', '700'],
 });
 
+// ──────────────────────────────────────────────
+// 📋 PERSONAL INFORMATION
+// ──────────────────────────────────────────────
 const personalDetails = {
-  name: "Mahmudul Hasan Jony",
-  alternateName: ["MH Jony", "Jony", "Mahmudul Hasan"],
-  jobTitle: "Full-Stack Web Developer",
-  url: "https://vercel.com/jonym7293-3830s-projects", 
-  email: "jonym7293@gmail.com",
-  location: "Hazaribagh, Dhaka, Bangladesh",
+  name: 'Mahmudul Hasan Jony',
+  alternateName: ['MH Jony', 'Jony', 'Mahmudul Hasan'],
+  jobTitle: 'Full-Stack Web Developer',
+  url: 'https://vercel.com/jonym7293-3830s-projects',
+  email: 'jonym7293@gmail.com',
+  phone: '+8801890305043',
+  location: 'Hazaribagh, Dhaka, Bangladesh',
   sameAs: [
-    "https://www.linkedin.com/in/mahmudul-hasan-jony12/",
-    "https://github.com/MHJony1", 
-    "https://www.facebook.com/mh.jony.7798" 
-  ]
+    'https://www.linkedin.com/in/mahmudul-hasan-jony12/',
+    'https://github.com/MHJony1',
+    'https://www.facebook.com/mh.jony.7798',
+    'https://twitter.com/your-twitter-handle', // যদি থাকে
+    'https://www.youtube.com/@your-channel', // যদি থাকে
+  ],
 };
 
+// ──────────────────────────────────────────────
+// 🎯 METADATA CONFIGURATION
+// ──────────────────────────────────────────────
 export const metadata = {
   metadataBase: new URL(personalDetails.url),
+
   title: {
-    default: "Mahmudul Hasan Jony | Full-Stack Developer in Bangladesh",
-    template: "%s | Mahmudul Hasan Jony"
+    default: 'Mahmudul Hasan Jony | Full-Stack Developer in Bangladesh',
+    template: '%s | Mahmudul Hasan Jony',
   },
-  description: "Mahmudul Hasan Jony is a MERN Stack & Full-Stack Developer based in Dhaka, Bangladesh, building modern and scalable web applications with React, Next.js, and MongoDB.",
+
+  description:
+    'Mahmudul Hasan Jony is a MERN Stack & Full-Stack Developer based in Dhaka, Bangladesh, building modern and scalable web applications with React, Next.js, and MongoDB.',
+
   keywords: [
-    "Mahmudul Hasan Jony", "MH Jony", "Jony Developer", 
-    "Full Stack Developer Bangladesh", "MERN Stack Developer Dhaka", 
-    "React Developer Dhaka", "Frontend Developer Hazaribagh",
-    "Software Engineer Bangladesh", "Next.js Expert Dhaka"
+    'Mahmudul Hasan Jony',
+    'MH Jony',
+    'Jony Developer',
+    'Full Stack Developer Bangladesh',
+    'MERN Stack Developer Dhaka',
+    'React Developer Dhaka',
+    'Frontend Developer Hazaribagh',
+    'Software Engineer Bangladesh',
+    'Next.js Expert Dhaka',
+    'Web Developer Bangladesh',
+    'JavaScript Developer',
   ],
-  authors: [{ name: "Mahmudul Hasan Jony" }],
-  creator: "Mahmudul Hasan Jony",
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: personalDetails.url,
-    title: "Mahmudul Hasan Jony | Full-Stack Developer",
-    description: "Professional Full-Stack web solutions and high-performance applications by Mahmudul Hasan Jony.",
-    siteName: "Jony Portfolio",
-    images: [
+
+  authors: [{ name: 'Mahmudul Hasan Jony', url: personalDetails.url }],
+  creator: 'Mahmudul Hasan Jony',
+  publisher: 'Mahmudul Hasan Jony',
+
+  // ── Favicon & Icons ──
+  icons: {
+    icon: [
+      { url: '/favicon.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon.png', sizes: '16x16', type: 'image/png' },
+    ],
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
+    other: [
       {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Mahmudul Hasan Jony - Full-Stack Developer Portfolio",
+        rel: 'mask-icon',
+        url: '/favicon.png',
+        color: '#3b82f6',
       },
     ],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Mahmudul Hasan Jony | Software Engineer",
-    description: "Building modern web experiences with the MERN stack.",
-    images: ["/og-image.png"],
+
+  // ── Open Graph (Facebook, LinkedIn, etc.) ──
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: personalDetails.url,
+    title: 'Mahmudul Hasan Jony | Full-Stack Developer',
+    description:
+      'Professional Full-Stack web solutions and high-performance applications by Mahmudul Hasan Jony.',
+    siteName: 'Jony Portfolio',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Mahmudul Hasan Jony - Full-Stack Developer Portfolio',
+        type: 'image/png',
+      },
+    ],
+    emails: [personalDetails.email],
   },
+
+  // ── Twitter Card ──
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Mahmudul Hasan Jony | Software Engineer',
+    description: 'Building modern web experiences with the MERN stack.',
+    images: ['/og-image.png'],
+    creator: '@your-twitter-handle', // আপনার টুইটার হ্যান্ডেল
+    site: '@your-twitter-handle',
+  },
+
+  // ── SEO & Crawlers ──
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
+
+  // ── Verification ──
   verification: {
-    google: "3xTfRXUs6iW9698yGww7p4GRMFnWWqcvUKyTpjR-3mw", // Replace this with your own search console code
+    google: '3xTfRXUs6iW9698yGww7p4GRMFnWWqcvUKyTpjR-3mw',
+    // yandex: "your-yandex-verification-code", // যদি Yandex ব্যবহার করেন
+    // bing: "your-bing-verification-code", // যদি Bing ব্যবহার করেন
+  },
+
+  // ── Other Meta ──
+  alternates: {
+    canonical: personalDetails.url,
+  },
+
+  category: 'technology',
+
+  // ── App Links ──
+  appLinks: {
+    web: {
+      url: personalDetails.url,
+      should_fallback: true,
+    },
   },
 };
 
+// ──────────────────────────────────────────────
+// 🧩 ROOT LAYOUT
+// ──────────────────────────────────────────────
 export default function RootLayout({ children }) {
+  // ── JSON-LD Schema (Structured Data) ──
   const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": personalDetails.name,
-    "alternateName": personalDetails.alternateName,
-    "jobTitle": [
-      "Full-Stack Developer",
-      "Frontend Developer",
-      "MERN Stack Developer",
-      "Software Engineer"
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: personalDetails.name,
+    alternateName: personalDetails.alternateName,
+    jobTitle: [
+      'Full-Stack Developer',
+      'Frontend Developer',
+      'MERN Stack Developer',
+      'Software Engineer',
+      'Web Developer',
     ],
-    "url": personalDetails.url,
-    "image": `${personalDetails.url}/profile.png`,
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Hazaribagh, Dhaka",
-      "addressCountry": "Bangladesh"
+    url: personalDetails.url,
+    image: `${personalDetails.url}/profile.png`,
+    email: personalDetails.email,
+    telephone: personalDetails.phone,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Hazaribagh, Dhaka',
+      addressCountry: 'Bangladesh',
+      addressRegion: 'Dhaka',
+      postalCode: '1206',
     },
-    "sameAs": personalDetails.sameAs,
-    "description": metadata.description,
-    "email": personalDetails.email
+    sameAs: personalDetails.sameAs,
+    description: metadata.description,
+    knowsAbout: [
+      'React',
+      'Next.js',
+      'Node.js',
+      'Express.js',
+      'MongoDB',
+      'PostgreSQL',
+      'TypeScript',
+      'Tailwind CSS',
+      'JavaScript',
+      'RESTful APIs',
+      'GraphQL',
+      'JWT',
+      'OAuth',
+      'Docker',
+      'AWS',
+      'Vercel',
+      'Netlify',
+      'Git',
+      'CI/CD',
+      'Responsive Design',
+      'UI/UX Design',
+      'Web Performance',
+      'SEO',
+      'Accessibility',
+    ],
+    hasOccupation: {
+      '@type': 'Occupation',
+      name: 'Full-Stack Developer',
+      description:
+        'Building high-performance, scalable web applications with modern technologies.',
+      occupationalCategory: '15-1255.00',
+    },
   };
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="dark">
       <head>
+        {/* ── Material Icons ── */}
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         />
+
+        {/* ── Preconnect for Performance ── */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+
+        {/* ── DNS Prefetch ── */}
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+
+        {/* ── Theme Color ── */}
+        <meta
+          name="theme-color"
+          content="#0b0e14"
+          media="(prefers-color-scheme: dark)"
+        />
+        <meta
+          name="theme-color"
+          content="#f8fafc"
+          media="(prefers-color-scheme: light)"
+        />
+
+        {/* ── Viewport ── */}
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+        />
+
+        {/* ── Apple Web App ── */}
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
+
+        {/* ── Favicon Manual Fallback ── */}
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
+        <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
+
+        {/* ── Security Headers (Optional) ── */}
+        <meta httpEquiv="x-dns-prefetch-control" content="on" />
+
+        {/* ── Feed Links ── */}
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="MH Jony Portfolio Feed"
+          href="/feed.xml"
+        />
       </head>
-      <body suppressHydrationWarning className={`${plusJakartaSans.variable} ${inter.variable} bg-background text-on-background font-body-md overflow-x-hidden`}>
+
+      <body
+        suppressHydrationWarning
+        className={`${plusJakartaSans.variable} ${inter.variable} bg-background text-on-background font-body-md overflow-x-hidden antialiased`}
+      >
         <Providers>
+          {/* ── UI Components ── */}
           <PageLoader />
           <CustomCursor />
           <ScrollProgress />
@@ -120,12 +303,33 @@ export default function RootLayout({ children }) {
             <ScrollButtons />
           </SmoothScroll>
         </Providers>
+
+        {/* ── JSON-LD Structured Data ── */}
         <Script
           id="person-schema"
           strategy="afterInteractive"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+
+        {/* ── Analytics (Optional) ── */}
+        {process.env.NODE_ENV === 'production' && (
+          <>
+            {/* Google Analytics */}
+            <Script
+              id="google-analytics"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
+                `,
+              }}
+            />
+          </>
+        )}
       </body>
     </html>
   );

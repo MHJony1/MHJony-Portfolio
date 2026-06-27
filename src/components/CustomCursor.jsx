@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { motion, useSpring, useMotionValue } from "framer-motion";
+import { useEffect, useState } from 'react';
+import { motion, useSpring, useMotionValue } from 'framer-motion';
 
 const CustomCursor = () => {
   const [mounted, setMounted] = useState(false);
@@ -30,11 +30,11 @@ const CustomCursor = () => {
     const handleHover = (e) => {
       const target = e.target;
       if (
-        target.tagName === "A" ||
-        target.tagName === "BUTTON" ||
-        target.closest("a") ||
-        target.closest("button") ||
-        target.classList.contains("cursor-pointer")
+        target.tagName === 'A' ||
+        target.tagName === 'BUTTON' ||
+        target.closest('a') ||
+        target.closest('button') ||
+        target.classList.contains('cursor-pointer')
       ) {
         setIsHovered(true);
       } else {
@@ -42,16 +42,16 @@ const CustomCursor = () => {
       }
     };
 
-    window.addEventListener("mousemove", moveCursor);
-    window.addEventListener("touchmove", moveCursor);
-    window.addEventListener("touchstart", moveCursor);
-    window.addEventListener("mouseover", handleHover);
+    window.addEventListener('mousemove', moveCursor);
+    window.addEventListener('touchmove', moveCursor);
+    window.addEventListener('touchstart', moveCursor);
+    window.addEventListener('mouseover', handleHover);
 
     return () => {
-      window.removeEventListener("mousemove", moveCursor);
-      window.removeEventListener("touchmove", moveCursor);
-      window.removeEventListener("touchstart", moveCursor);
-      window.removeEventListener("mouseover", handleHover);
+      window.removeEventListener('mousemove', moveCursor);
+      window.removeEventListener('touchmove', moveCursor);
+      window.removeEventListener('touchstart', moveCursor);
+      window.removeEventListener('mouseover', handleHover);
     };
   }, []);
 
@@ -65,8 +65,8 @@ const CustomCursor = () => {
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
-          translateX: "-50%",
-          translateY: "-50%",
+          translateX: '-50%',
+          translateY: '-50%',
         }}
       />
 
@@ -76,33 +76,18 @@ const CustomCursor = () => {
         animate={{
           scale: isHovered ? 2.5 : 1,
           opacity: isHovered ? 0.5 : 1,
-          backgroundColor: isHovered ? "rgba(37, 99, 235, 0.1)" : "transparent",
+          backgroundColor: isHovered ? 'rgba(37, 99, 235, 0.1)' : 'transparent',
         }}
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
-          translateX: "-50%",
-          translateY: "-50%",
+          translateX: '-50%',
+          translateY: '-50%',
         }}
-        transition={{ type: "spring", stiffness: 250, damping: 20 }}
+        transition={{ type: 'spring', stiffness: 250, damping: 20 }}
       />
 
-      {/* Label on hover */}
-      {isHovered && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          style={{
-            x: cursorXSpring,
-            y: cursorYSpring,
-            translateX: "20px",
-            translateY: "20px",
-          }}
-          className="px-2 py-1 bg-primary rounded text-[8px] font-black text-white uppercase tracking-tighter"
-        >
-          View
-        </motion.div>
-      )}
+      {/* VIEW label সরানো হয়েছে */}
     </div>
   );
 };
