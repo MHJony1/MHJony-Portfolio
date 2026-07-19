@@ -40,8 +40,8 @@ const personalDetails = {
     'https://www.linkedin.com/in/mahmudul-hasan-jony12/',
     'https://github.com/MHJony1',
     'https://www.facebook.com/mh.jony.7798',
-    'https://twitter.com/your-twitter-handle', // যদি থাকে
-    'https://www.youtube.com/@your-channel', // যদি থাকে
+    'https://twitter.com/your-twitter-handle',
+    'https://www.youtube.com/@your-channel',
   ],
 };
 
@@ -77,6 +77,20 @@ export const metadata = {
   creator: 'Mahmudul Hasan Jony',
   publisher: 'Mahmudul Hasan Jony',
 
+  // Next.js Viewport & Theme Configuration
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+  },
+
+  // Note: For themeColor array/object format changes in newer Next.js versions, 
+  // keeping it explicitly structured or handled gracefully.
+  themeColor: [
+    { media: '(prefers-color-scheme: dark)', color: '#0b0e14' },
+    { media: '(prefers-color-scheme: light)', color: '#f8fafc' }
+  ],
+
   // ── Favicon & Icons ──
   icons: {
     icon: [
@@ -94,7 +108,7 @@ export const metadata = {
     ],
   },
 
-  // ── Open Graph (Facebook, LinkedIn, etc.) ──
+  // ── Open Graph ──
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -121,7 +135,7 @@ export const metadata = {
     title: 'Mahmudul Hasan Jony | Software Engineer',
     description: 'Building modern web experiences with the MERN stack.',
     images: ['/og-image.png'],
-    creator: '@your-twitter-handle', // আপনার টুইটার হ্যান্ডেল
+    creator: '@your-twitter-handle',
     site: '@your-twitter-handle',
   },
 
@@ -141,8 +155,6 @@ export const metadata = {
   // ── Verification ──
   verification: {
     google: '3xTfRXUs6iW9698yGww7p4GRMFnWWqcvUKyTpjR-3mw',
-    // yandex: "your-yandex-verification-code", // যদি Yandex ব্যবহার করেন
-    // bing: "your-bing-verification-code", // যদি Bing ব্যবহার করেন
   },
 
   // ── Other Meta ──
@@ -152,7 +164,6 @@ export const metadata = {
 
   category: 'technology',
 
-  // ── App Links ──
   appLinks: {
     web: {
       url: personalDetails.url,
@@ -192,36 +203,15 @@ export default function RootLayout({ children }) {
     sameAs: personalDetails.sameAs,
     description: metadata.description,
     knowsAbout: [
-      'React',
-      'Next.js',
-      'Node.js',
-      'Express.js',
-      'MongoDB',
-      'PostgreSQL',
-      'TypeScript',
-      'Tailwind CSS',
-      'JavaScript',
-      'RESTful APIs',
-      'GraphQL',
-      'JWT',
-      'OAuth',
-      'Docker',
-      'AWS',
-      'Vercel',
-      'Netlify',
-      'Git',
-      'CI/CD',
-      'Responsive Design',
-      'UI/UX Design',
-      'Web Performance',
-      'SEO',
-      'Accessibility',
+      'React', 'Next.js', 'Node.js', 'Express.js', 'MongoDB', 'PostgreSQL',
+      'TypeScript', 'Tailwind CSS', 'JavaScript', 'RESTful APIs', 'GraphQL',
+      'JWT', 'OAuth', 'Docker', 'AWS', 'Vercel', 'Netlify', 'Git', 'CI/CD',
+      'Responsive Design', 'UI/UX Design', 'Web Performance', 'SEO', 'Accessibility',
     ],
     hasOccupation: {
       '@type': 'Occupation',
       name: 'Full-Stack Developer',
-      description:
-        'Building high-performance, scalable web applications with modern technologies.',
+      description: 'Building high-performance, scalable web applications with modern technologies.',
       occupationalCategory: '15-1255.00',
     },
   };
@@ -247,37 +237,12 @@ export default function RootLayout({ children }) {
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
 
-        {/* ── Theme Color ── */}
-        <meta
-          name="theme-color"
-          content="#0b0e14"
-          media="(prefers-color-scheme: dark)"
-        />
-        <meta
-          name="theme-color"
-          content="#f8fafc"
-          media="(prefers-color-scheme: light)"
-        />
-
-        {/* ── Viewport ── */}
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
-        />
-
-        {/* ── Apple Web App ── */}
+        {/* ── Apple Web App Meta ── */}
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta
           name="apple-mobile-web-app-status-bar-style"
           content="black-translucent"
         />
-
-        {/* ── Favicon Manual Fallback ── */}
-        <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
-        <link rel="shortcut icon" href="/favicon.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/favicon.png" />
-
-        {/* ── Security Headers (Optional) ── */}
         <meta httpEquiv="x-dns-prefetch-control" content="on" />
 
         {/* ── Feed Links ── */}
@@ -293,6 +258,21 @@ export default function RootLayout({ children }) {
         suppressHydrationWarning
         className={`${plusJakartaSans.variable} ${inter.variable} bg-background text-on-background font-body-md overflow-x-hidden antialiased`}
       >
+        {/* ── Microsoft Clarity (Optimized with Next.js Script) ── */}
+        <Script
+          id="microsoft-clarity"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(c,l,a,r,i,t,y){
+                c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+              })(window, document, "clarity", "script", "xp01cg3gue");
+            `,
+          }}
+        />
+
         <Providers>
           {/* ── UI Components ── */}
           <PageLoader />
@@ -312,10 +292,13 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
 
-        {/* ── Analytics (Optional) ── */}
-        {process.env.NODE_ENV === 'production' && (
+        {/* ── Google Analytics (Production Only) ── */}
+        {process.env.NODE_ENV === 'production' && process.env.NEXT_PUBLIC_GA_ID && (
           <>
-            {/* Google Analytics */}
+            <Script
+              strategy="afterInteractive"
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+            />
             <Script
               id="google-analytics"
               strategy="afterInteractive"
