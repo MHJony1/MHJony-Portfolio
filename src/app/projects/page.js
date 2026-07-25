@@ -4,66 +4,22 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import TiltCard from '@/components/TiltCard';
-
-// ✅ Fixed Imports
-import tileGalleryImg from '@/assets/tilecraft.png';
-import dragonNewsImg from '@/assets/dragonnews.png';
-import digiToolsImg from '@/assets/digitools.png';
+import projects from '@/data/projects';
 
 const ProjectsPage = () => {
+  const router = useRouter();
   const [filter, setFilter] = useState('All');
 
-  const categories = ['All', 'Full-Stack', 'Frontend', 'UI/UX'];
-
-  const projects = [
-    {
-      title: 'Tilecraft Gallery',
-      category: 'Full-Stack',
-      description:
-        'A premium full-stack architectural showcase engineered with the MERN stack, featuring a cinematic interface powered by HeroUI.',
-      tags: ['Next.js', 'MongoDB', 'BetterAuth', 'HeroUI'],
-      image: tileGalleryImg,
-      liveLink: 'https://a-8-tiles-gallery-project.vercel.app/',
-      repoLink: 'https://github.com/MHJony1?tab=repositories',
-    },
-    {
-      title: 'Dragon News',
-      category: 'Full-Stack',
-      description:
-        'A high-performance media platform with secure authentication, social login, and real-time categorized news management.',
-      tags: ['Next.js', 'Tailwind', 'Firebase'],
-      image: dragonNewsImg,
-      liveLink: 'https://the-dragon-news-project-alpha.vercel.app/category/01',
-      repoLink: 'https://github.com/MHJony1/The-Dragon-News-Project',
-    },
-    {
-      title: 'Modern Digitools Ecommerce',
-      category: 'Frontend', // ✅ এটি মিসিং ছিল, যোগ করা হয়েছে
-      description:
-        'A comprehensive digital tools & productivity software platform. Browse, purchase, and use powerful digital utilities designed for developers and creators.',
-      tags: ['React', 'JavaScript', 'Netlify'],
-      image: digiToolsImg,
-      liveLink: 'https://digitools-platfrom-12.netlify.app/',
-      repoLink: 'https://github.com/MHJony1/A-6-DigiTools-Platform',
-    },
-    {
-      title: 'KeenKeeper Social',
-      category: 'Full-Stack',
-      description:
-        'A relationship management app to browse, tend, and nurture the friendships that matter most.',
-      tags: ['React', 'Firebase', 'Tailwind'],
-      image:
-        'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&q=80&w=1200&h=675',
-      liveLink: 'https://a-7-keen-keeper-project.netlify.app/',
-      repoLink: 'https://github.com/MHJony1/A-7-Keen-Keeper',
-    },
-  ];
+  const categories = ['All', 'Next.js', 'React', 'Full-Stack'];
 
   const filteredProjects =
-    filter === 'All' ? projects : projects.filter((p) => p.category === filter);
+    filter === 'All'
+      ? projects
+      : projects.filter((p) => p.categories.includes(filter));
 
   return (
     <main className="min-h-screen bg-background">
@@ -114,7 +70,11 @@ const ProjectsPage = () => {
               transition={{ delay: i * 0.1 }}
             >
               <TiltCard className="h-full">
-                <div className="group bg-surface-container-low border border-outline-variant/10 rounded-[32px] overflow-hidden flex flex-col h-full hover:shadow-2xl transition-all duration-500">
+                <div
+                  onClick={() => router.push(`/projects/${project.slug}`)}
+                  className="block h-full cursor-pointer"
+                >
+                  <div className="group bg-surface-container-low border border-outline-variant/10 rounded-[32px] overflow-hidden flex flex-col h-full hover:shadow-2xl transition-all duration-500">
                   <div className="relative aspect-[16/10] overflow-hidden bg-surface-container-highest">
                     <Image
                       src={project.image}
@@ -125,7 +85,7 @@ const ProjectsPage = () => {
                       unoptimized={typeof project.image === 'string'}
                     />
                     <div className="absolute top-4 right-4 px-3 py-1 bg-black/40 backdrop-blur-xl border border-white/10 rounded-lg text-[10px] font-bold text-white uppercase tracking-widest">
-                      {project.category}
+                      {project.categories[0]}
                     </div>
                   </div>
 
@@ -152,6 +112,7 @@ const ProjectsPage = () => {
                         href={project.liveLink}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
                         className="text-[10px] font-black uppercase tracking-widest flex items-center gap-2 hover:text-primary transition-colors"
                       >
                         Live Demo{' '}
@@ -163,6 +124,7 @@ const ProjectsPage = () => {
                         href={project.repoLink}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
                         className="text-[10px] font-black uppercase tracking-widest flex items-center gap-2 hover:text-primary transition-colors"
                       >
                         Source{' '}
@@ -170,6 +132,7 @@ const ProjectsPage = () => {
                           code
                         </span>
                       </a>
+                    </div>
                     </div>
                   </div>
                 </div>

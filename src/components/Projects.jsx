@@ -2,22 +2,19 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import playNest from '@/assets/playnest.png';
-import tileGallery from '@/assets/tilecraft.png';
-import dragonNews from '@/assets/dragonnews.png';
-import digiTools from '@/assets/digitools.png';
-import keenKeeper from '@/assets/kinekeepr.png';
-import bibliodrop from '@/assets/bibliodrop.png';
+import projects from '@/data/projects';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Projects = () => {
   const sectionRef = useRef(null);
+  const router = useRouter();
   const [activeCategory, setActiveCategory] = useState('All');
   const [currentPage, setCurrentPage] = useState(1);
   const projectsPerPage = 4;
@@ -25,86 +22,10 @@ const Projects = () => {
   const brandGradient = 'from-[#2563eb] via-[#a855f7] to-[#f43f5e]';
   const categories = ['All', 'Next.js', 'React', 'Full-Stack'];
 
-  const allProjects = [
-    {
-      title: 'BiblioDrop',
-      subtitle: 'Online Book Delivery Management System',
-      description:
-        'A role-based online book delivery platform that connects readers with local libraries, offering seamless book discovery, secure payments, and real-time order tracking.',
-      tags: [
-        'Next.js',
-        'MongoDB',
-        'BetterAuth',
-        'JWT',
-        'Stripe',
-        'RoleBasedAuth',
-      ],
-      categories: ['Next.js', 'Full-Stack'],
-      image: bibliodrop,
-      liveLink: 'https://bibliodrop-client-nu.vercel.app',
-      repoLink: 'https://github.com/MHJony1/bibliodrop-client',
-    },
-    {
-      title: 'PlayNest',
-      subtitle: 'Sports Facility Booking Platform',
-      description:
-        'Full-stack booking platform for seamless discovery and real-time slot reservation across premium sports arenas. JWT-secured with session-based auth.',
-      tags: ['Next.js', 'MongoDB', 'BetterAuth', 'JWT'],
-      categories: ['Next.js', 'Full-Stack'],
-      image: playNest,
-      liveLink: 'https://a-9-sport-nest-project.vercel.app',
-      repoLink: 'https://github.com/MHJony1/A-9-SportNest-Project',
-    },
-    {
-      title: 'Tilecraft Gallery',
-      subtitle: 'Architectural Tile Showcase',
-      description:
-        'Production-grade architectural showcase for premium tile discovery and management. Secure auth layer via BetterAuth with a fluid HeroUI interface.',
-      tags: ['Next.js', 'Framer Motion', 'BetterAuth', 'MongoDB'],
-      categories: ['Next.js', 'Full-Stack'],
-      image: tileGallery,
-      liveLink: 'https://a-8-tiles-gallery-project.vercel.app/',
-      repoLink: 'https://github.com/MHJony1?tab=repositories',
-    },
-    {
-      title: 'The Dragon News',
-      subtitle: 'Dynamic News Portal',
-      description:
-        'High-performance news portal with sophisticated authentication, social login integration, and robust real-time content management architecture.',
-      tags: ['Next.js', 'Tailwind', 'Firebase', 'Vercel'],
-      categories: ['Next.js'],
-      image: dragonNews,
-      liveLink: 'https://the-dragon-news-project-alpha.vercel.app/category/01',
-      repoLink: 'https://github.com/MHJony1/The-Dragon-News-Project',
-    },
-    {
-      title: 'KeenKeeper',
-      subtitle: 'Social Relationship Manager',
-      description:
-        'Your personal shelf of meaningful connections. Browse, tend, and nurture the friendships and relationships that matter most.',
-      tags: ['React', 'Firebase', 'Netlify'],
-      categories: ['React'],
-      image: keenKeeper,
-      liveLink: 'https://a-7-keen-keeper-project.netlify.app/',
-      repoLink: 'https://github.com/MHJony1/A-7-Keen-Keeper',
-    },
-    {
-      title: 'Modern Digitools',
-      subtitle: 'Ecommerce Platform',
-      description:
-        'Comprehensive digital tools and productivity software platform for developers and creators to browse, purchase, and use powerful utilities.',
-      tags: ['React', 'JavaScript', 'Netlify'],
-      categories: ['React'],
-      image: digiTools,
-      liveLink: 'https://digitools-platfrom-12.netlify.app/',
-      repoLink: 'https://github.com/MHJony1/A-6-DigiTools-Platform',
-    },
-  ];
-
   const filteredProjects =
     activeCategory === 'All'
-      ? allProjects
-      : allProjects.filter((project) =>
+      ? projects
+      : projects.filter((project) =>
           project.categories.includes(activeCategory),
         );
 
@@ -246,7 +167,10 @@ const Projects = () => {
                   transition={{ delay, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                   className={`h-full ${isFeatured ? 'col-span-1 md:col-span-2' : 'col-span-1'}`}
                 >
-                  <div className="group h-full relative">
+                  <div
+                    onClick={() => router.push(`/projects/${project.slug}`)}
+                    className="group h-full relative block cursor-pointer"
+                  >
                     {/* ── Glow Behind ── */}
                     <div
                       className={`absolute -inset-0.5 bg-linear-to-r ${brandGradient} rounded-xl opacity-0 group-hover:opacity-15 blur-xl transition-opacity duration-700 -z-10`}
@@ -364,6 +288,7 @@ const Projects = () => {
                           <Link
                             href={project.liveLink}
                             target="_blank"
+                            onClick={(e) => e.stopPropagation()}
                             className={`flex-1 flex items-center justify-center gap-1.5 bg-linear-to-r ${brandGradient} text-white px-4 py-2.5 rounded-lg font-bold text-[9px] uppercase tracking-wider transition-all duration-300 hover:shadow-[0_0_30px_rgba(37,99,235,0.25)] active:scale-[0.97] relative overflow-hidden group/btn`}
                           >
                             <span className="relative z-10 flex items-center gap-1.5">
@@ -378,6 +303,7 @@ const Projects = () => {
                           <Link
                             href={project.repoLink}
                             target="_blank"
+                            onClick={(e) => e.stopPropagation()}
                             className="flex items-center justify-center gap-1.5 bg-white/[0.03] backdrop-blur-md text-white/40 px-4 py-2.5 rounded-lg font-bold text-[9px] uppercase tracking-wider border border-white/5 hover:bg-white/[0.06] hover:text-white hover:border-white/10 transition-all duration-300 active:scale-[0.97] group/btn"
                           >
                             <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover/btn:scale-110">

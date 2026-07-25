@@ -78,7 +78,7 @@ const Hero = () => {
         <div className="absolute top-[15%] -right-[5%] w-[250px] h-[250px] md:w-[400px] md:h-[400px] bg-rose-500/10 rounded-full blur-[80px] md:blur-[120px]"></div>
       </motion.div>
 
-      {/* Left Content - Text (Desktop: Left, Mobile: Bottom/Order-2) */}
+      {/* Left Content - Text */}
       <motion.div
         style={{
           y:
@@ -96,8 +96,8 @@ const Hero = () => {
         </div>
 
         <div className="space-y-4 w-full">
-          {/* Animated Heading */}
-          <div className="h-[80px] xs:h-[100px] sm:h-[120px] md:h-[150px] flex items-center justify-center lg:justify-start overflow-visible">
+          {/* Animated Heading - FIXED HEIGHT to prevent overlap */}
+          <div className="h-[80px] xs:h-[100px] sm:h-[120px] md:h-[140px] flex items-center justify-center lg:justify-start overflow-visible">
             <AnimatePresence mode="wait">
               <motion.h1
                 key={sequenceIndex}
@@ -105,7 +105,7 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                 exit={{ opacity: 0, y: -30, filter: 'blur(12px)' }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className={`text-[2.5rem] xs:text-[2.8rem] sm:text-[4rem] md:text-[5.5rem] leading-[1.1] tracking-tighter ${
+                className={`text-[2.5rem] xs:text-[3rem] sm:text-[4rem] md:text-[4.5rem] leading-[1.1] tracking-tighter ${
                   sequenceIndex === 2
                     ? 'text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-rose-400 font-black'
                     : 'text-on-background font-bold'
@@ -116,15 +116,15 @@ const Hero = () => {
             </AnimatePresence>
           </div>
 
-          <div className="flex flex-col gap-2.5">
+          <div className="flex flex-col gap-2">
             <span className="block text-sm sm:text-base md:text-lg font-bold uppercase tracking-[0.15em] md:tracking-[0.2em] text-on-surface-variant/80">
               Full-Stack Developer from Bangladesh
             </span>
 
             {/* Role Switcher */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-3 gap-y-1 text-xl sm:text-3xl md:text-4xl font-heading font-bold text-on-surface-variant">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-3 gap-y-1 text-xl sm:text-2xl md:text-3xl font-heading font-bold text-on-surface-variant">
               <span className="shrink-0 opacity-60">I&apos;m a</span>
-              <div className="relative h-10 sm:h-14 overflow-hidden min-w-[200px] xs:min-w-[250px] md:min-w-[450px]">
+              <div className="relative h-10 sm:h-12 md:h-14 overflow-hidden min-w-[200px] xs:min-w-[250px] md:min-w-[450px]">
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={roleIndex}
@@ -147,14 +147,14 @@ const Hero = () => {
             </div>
           </div>
 
-          <motion.p className="text-base sm:text-lg text-on-surface-variant/70 max-w-lg leading-relaxed pt-1 mx-auto lg:mx-0">
+          <motion.p className="text-base sm:text-lg text-on-surface-variant/70 max-w-lg leading-relaxed pt-2 mx-auto lg:mx-0">
             I build high-performance, scalable web applications with a focus on
             modern architectures and seamless user experiences.
           </motion.p>
         </div>
 
         {/* Buttons */}
-        <motion.div className="flex flex-col sm:flex-row gap-4 sm:gap-5 pt-5 w-full sm:w-auto">
+        <motion.div className="flex flex-col sm:flex-row gap-4 sm:gap-5 pt-4 w-full sm:w-auto">
           <Magnetic strength={0.1}>
             <button
               onClick={() =>
@@ -182,7 +182,7 @@ const Hero = () => {
         </motion.div>
       </motion.div>
 
-      {/* Right Content - Image (Desktop: Right, Mobile: Top/Order-1) */}
+      {/* Right Content - Image */}
       <motion.div
         style={{
           y:
@@ -206,16 +206,21 @@ const Hero = () => {
             className="absolute inset-0 border border-rose-500/10 rounded-full"
           />
 
-          {/* Image Container */}
+          {/* Image Container - FIXED: Head positioned properly */}
           <div className="relative z-10 w-[220px] h-[220px] xs:w-[260px] xs:h-[260px] sm:w-[360px] sm:h-[360px] lg:w-[420px] lg:h-[420px] rounded-full p-2 border-2 border-white/5 bg-gradient-to-b from-white/10 to-transparent backdrop-blur-sm shadow-2xl overflow-hidden">
-            <div className="w-full h-full rounded-full overflow-hidden bg-zinc-900 relative">
+            <div className="w-full h-full rounded-full overflow-hidden bg-zinc-900 relative flex items-end justify-center">
               <Image
                 src={profileImg}
                 alt="Mahmudul Hasan Jony"
-                className="w-full h-full object-cover grayscale-[15%] group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100"
+                className="w-full h-auto object-cover grayscale-[15%] group-hover:grayscale-0 transition-all duration-1000"
                 priority
+                style={{
+                  objectPosition: 'center 10%',
+                  marginTop: '-10%',
+                  maxHeight: '110%',
+                }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
             </div>
           </div>
           <div className="mt-4 text-center">
@@ -223,31 +228,6 @@ const Hero = () => {
               mhjony-dev
             </p>
           </div>
-
-          {/* Floating Badges */}
-          <motion.div
-            whileHover={{ scale: 1.1 }}
-            className="absolute -left-2 xs:-left-5 lg:-left-10 top-1/4 glass-card p-3 sm:p-4 rounded-xl md:rounded-2xl border border-white/10 backdrop-blur-3xl shadow-2xl z-20"
-          >
-            <span className="text-xl sm:text-2xl font-black text-blue-400">
-              1+
-            </span>
-            <p className="text-[7px] sm:text-[8px] font-bold text-on-surface-variant uppercase tracking-widest mt-1">
-              Years Exp
-            </p>
-          </motion.div>
-
-          <motion.div
-            whileHover={{ scale: 1.1 }}
-            className="absolute -right-2 xs:-right-5 lg:-right-10 bottom-1/4 glass-card p-3 sm:p-4 rounded-xl md:rounded-2xl border border-white/10 backdrop-blur-3xl shadow-2xl z-20"
-          >
-            <span className="text-xl sm:text-2xl font-black text-rose-500">
-              20+
-            </span>
-            <p className="text-[7px] sm:text-[8px] font-bold text-on-surface-variant uppercase tracking-widest mt-1">
-              Projects
-            </p>
-          </motion.div>
         </div>
 
         <div className="mt-4 text-center hidden xs:block">
