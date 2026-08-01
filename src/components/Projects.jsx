@@ -14,6 +14,8 @@ import dragonNews from '@/assets/dragonnews.png';
 import digiTools from '@/assets/digitools.png';
 import keenKeeper from '@/assets/kinekeepr.png';
 import bibliodrop from '@/assets/bibliodrop.png';
+import voyageAI from '@/assets/voyageAI.png';
+import recipeHub from '@/assets/recipeHub.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -37,6 +39,26 @@ Readers can browse curated collections, pay delivery fees via Stripe, and track 
       image: bibliodrop,
       liveLink: 'https://bibliodrop-client-nu.vercel.app',
       repoLink: 'https://github.com/MHJony1/bibliodrop-client',
+    },
+    {
+      title: 'VoyageAI',
+      subtitle: 'Plan Smarter. Travel Better.',
+      description:
+        'AI-powered travel planning platform that turns "where should I go?" into a fully personalized itinerary in seconds. Combines curated destination discovery with generative AI for seamless trip planning.',
+      tags: ['Next.js', 'TypeScript', 'Node.js', 'Express', 'MongoDB'],
+      image: voyageAI,
+      liveLink: 'https://voyageai-topaz.vercel.app',
+      repoLink: 'https://github.com/MHJony1/VoyageAI-client',
+    },
+    {
+      title: 'RecipeHub',
+      subtitle: 'Discover, Cook, Share — Recipes from a Vibrant Food Community',
+      description:
+        'A full-stack recipe discovery and sharing platform where users can browse, search, filter, and manage recipes. Built with a premium, editorial-inspired design system.',
+      tags: ['Next.js', 'TypeScript', 'Node.js', 'Express', 'MongoDB'],
+      image: recipeHub,
+      liveLink: 'https://recipe-hub-client-seven.vercel.app/',
+      repoLink: 'https://github.com/MHJony1/RecipeHub-Client',
     },
     {
       title: 'PlayNest',
