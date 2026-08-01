@@ -2,115 +2,25 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import TiltCard from './TiltCard';
 
-import playNest from '@/assets/playnest.png';
-import tileGallery from '@/assets/tilecraft.png';
-import dragonNews from '@/assets/dragonnews.png';
-import digiTools from '@/assets/digitools.png';
-import keenKeeper from '@/assets/kinekeepr.png';
-import bibliodrop from '@/assets/bibliodrop.png';
-import voyageAI from '@/assets/voyageAI.png';
-import recipeHub from '@/assets/recipeHub.png';
-
-gsap.registerPlugin(ScrollTrigger);
+import projectsData from '@/data/projects';
 
 const PROJECTS_PER_PAGE = 4;
 
 const Projects = () => {
   const sectionRef = useRef(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const router = useRouter();
 
   const brandGradient = 'from-[#2563eb] via-[#a855f7] to-[#f43f5e]';
 
-  const allProjects = [
-    {
-      title: 'BiblioDrop',
-      subtitle: 'Online Book Delivery Management System',
-      description:
-        `BiblioDrop is a comprehensive digital platform that bridges the gap between readers and local book providers. Traditional libraries require physical visits — BiblioDrop eliminates that barrier entirely.
-
-Readers can browse curated collections, pay delivery fees via Stripe, and track their orders in real time.Librarians manage their inventory and delivery pipeline.Admins oversee the entire ecosystem with analytics and moderation tools.`,
-      tags: ['Next.js', 'MongoDB', 'BetterAuth', 'JWT'],
-      image: bibliodrop,
-      liveLink: 'https://bibliodrop-client-nu.vercel.app',
-      repoLink: 'https://github.com/MHJony1/bibliodrop-client',
-    },
-    {
-      title: 'VoyageAI',
-      subtitle: 'Plan Smarter. Travel Better.',
-      description:
-        'AI-powered travel planning platform that turns "where should I go?" into a fully personalized itinerary in seconds. Combines curated destination discovery with generative AI for seamless trip planning.',
-      tags: ['Next.js', 'TypeScript', 'Node.js', 'Express', 'MongoDB'],
-      image: voyageAI,
-      liveLink: 'https://voyageai-topaz.vercel.app',
-      repoLink: 'https://github.com/MHJony1/VoyageAI-client',
-    },
-    {
-      title: 'RecipeHub',
-      subtitle: 'Discover, Cook, Share — Recipes from a Vibrant Food Community',
-      description:
-        'A full-stack recipe discovery and sharing platform where users can browse, search, filter, and manage recipes. Built with a premium, editorial-inspired design system.',
-      tags: ['Next.js', 'TypeScript', 'Node.js', 'Express', 'MongoDB'],
-      image: recipeHub,
-      liveLink: 'https://recipe-hub-client-seven.vercel.app/',
-      repoLink: 'https://github.com/MHJony1/RecipeHub-Client',
-    },
-    {
-      title: 'PlayNest',
-      subtitle: 'Sports Facility Booking Platform',
-      description:
-        'Full-stack booking platform for seamless discovery and real-time slot reservation across premium sports arenas. JWT-secured with session-based auth.',
-      tags: ['Next.js', 'MongoDB', 'BetterAuth', 'JWT'],
-      image: playNest,
-      liveLink: 'https://a-9-sport-nest-project.vercel.app',
-      repoLink: 'https://github.com/MHJony1/A-9-SportNest-Project',
-    },
-    {
-      title: 'Tilecraft Gallery',
-      subtitle: 'Architectural Tile Showcase',
-      description:
-        'Production-grade architectural showcase for premium tile discovery and management. Secure auth layer via BetterAuth with a fluid HeroUI interface.',
-      tags: ['Next.js', 'Framer Motion', 'BetterAuth', 'MongoDB'],
-      image: tileGallery,
-      liveLink: 'https://a-8-tiles-gallery-project.vercel.app/',
-      repoLink: 'https://github.com/MHJony1?tab=repositories',
-    },
-    {
-      title: 'The Dragon News',
-      subtitle: 'Dynamic News Portal',
-      description:
-        'High-performance news portal with sophisticated authentication, social login integration, and robust real-time content management architecture.',
-      tags: ['Next.js', 'Tailwind', 'Firebase', 'Vercel'],
-      image: dragonNews,
-      liveLink: 'https://the-dragon-news-project-alpha.vercel.app/category/01',
-      repoLink: 'https://github.com/MHJony1/The-Dragon-News-Project',
-    },
-    {
-      title: 'KeenKeeper',
-      subtitle: 'Social Relationship Manager',
-      description:
-        'Your personal shelf of meaningful connections. Browse, tend, and nurture the friendships and relationships that matter most.',
-      tags: ['React', 'Firebase', 'Netlify'],
-      image: keenKeeper,
-      liveLink: 'https://a-7-keen-keeper-project.netlify.app/',
-      repoLink: 'https://github.com/MHJony1/A-7-Keen-Keeper',
-    },
-    {
-      title: 'Modern Digitools',
-      subtitle: 'Ecommerce Platform',
-      description:
-        'Comprehensive digital tools and productivity software platform for developers and creators to browse, purchase, and use powerful utilities.',
-      tags: ['React', 'JavaScript', 'Netlify'],
-      image: digiTools,
-      liveLink: 'https://digitools-platfrom-12.netlify.app/',
-      repoLink: 'https://github.com/MHJony1/A-6-DigiTools-Platform',
-    },
-  ];
+  const allProjects = projectsData;
 
   const totalPages = Math.ceil(allProjects.length / PROJECTS_PER_PAGE);
   const startIndex = (currentPage - 1) * PROJECTS_PER_PAGE;
@@ -179,9 +89,13 @@ Readers can browse curated collections, pay delivery fees via Stripe, and track 
             className="contents"
           >
             {displayedProjects.map((project, index) => (
-              <div key={project.title} className="project-card-wrap h-full">
+              <div
+                key={project.title}
+                className="project-card-wrap h-full cursor-pointer"
+                onClick={() => router.push(`/projects/${project.slug}`)}
+              >
                 <TiltCard className="h-full">
-                  <div className="flex flex-col h-full rounded-[22px] overflow-hidden group cursor-default border border-white/5 bg-[#0d121f]/50 backdrop-blur-md transition-all duration-500 hover:border-rose-500/20 hover:shadow-2xl hover:shadow-rose-950/10">
+                  <div className="flex flex-col h-full rounded-[22px] overflow-hidden group border border-white/5 bg-[#0d121f]/50 backdrop-blur-md transition-all duration-500 hover:border-rose-500/20 hover:shadow-2xl hover:shadow-rose-950/10">
                     {/* ── Image Section ── */}
                     <div className="relative w-full overflow-hidden aspect-video">
                       <div
@@ -244,6 +158,7 @@ Readers can browse curated collections, pay delivery fees via Stripe, and track 
                         <Link
                           href={project.liveLink}
                           target="_blank"
+                          onClick={(e) => e.stopPropagation()}
                           className={`flex-1 flex items-center justify-center gap-1.5 bg-linear-to-r ${brandGradient} text-white px-4 py-2 rounded-lg font-bold text-[9px] uppercase tracking-wider hover:brightness-110 transition-all duration-300 shadow-md active:scale-[0.98]`}
                         >
                           Live Demo
@@ -255,6 +170,7 @@ Readers can browse curated collections, pay delivery fees via Stripe, and track 
                         <Link
                           href={project.repoLink}
                           target="_blank"
+                          onClick={(e) => e.stopPropagation()}
                           className="flex items-center justify-center gap-1 bg-white/5 backdrop-blur-md text-white/70 px-4 py-2 rounded-lg font-bold text-[9px] uppercase tracking-wider border border-white/5 hover:bg-white/10 hover:text-white hover:border-rose-500/20 transition-all duration-300 active:scale-[0.98]"
                         >
                           <span className="material-symbols-outlined text-xs">
