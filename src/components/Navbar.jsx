@@ -1,36 +1,30 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import Magnetic from './Magnetic';
-import { Sun, Moon, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
-  const [mounted, setMounted] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
-    setMounted(true);
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
       const sections = ['home', 'about', 'skills', 'projects', 'contact'];
-      const scrollPosition = window.scrollY + 100;
+      const navbarOffset = 100;
       for (const section of sections) {
         if (section === 'home') {
-          if (scrollPosition < 500) setActiveSection('home');
+          if (window.scrollY < 400) setActiveSection('home');
           continue;
         }
         const el = document.getElementById(section);
-        if (
-          el &&
-          scrollPosition >= el.offsetTop &&
-          scrollPosition < el.offsetTop + el.offsetHeight
-        ) {
+        if (!el) continue;
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= navbarOffset && rect.bottom > navbarOffset) {
           setActiveSection(section);
         }
       }
@@ -127,22 +121,6 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-2 md:gap-4 z-110">
-          {/* THEME TOGGLE */}
-          {mounted && (
-            <button
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="relative w-12 h-6 md:w-14 md:h-7 bg-surface-container-highest rounded-full p-1 border border-white/5"
-            >
-              <motion.div
-                className="w-4 h-4 md:w-5 md:h-5 bg-background rounded-full flex items-center justify-center shadow-md"
-                animate={{ x: theme === 'dark' ? 0 : 24 }}
-                transition={{ type: 'spring', stiffness: 500, damping: 30 }}
-              >
-                {theme === 'dark' ? <Moon size={10} className="text-blue-400 fill-blue-400" /> : <Sun size={10} className="text-amber-500 fill-amber-500" />}
-              </motion.div>
-            </button>
-          )}
-
           <Link
             href="#contact"
             className="hidden sm:inline-flex items-center justify-center px-5 py-2 rounded-xl font-bold text-[10px] md:text-xs text-white bg-linear-to-r from-blue-600 to-rose-500 shadow-lg"

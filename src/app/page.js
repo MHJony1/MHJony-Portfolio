@@ -17,15 +17,15 @@ export default function Home() {
       <Navbar />
       <div className="mt-16">
         <Hero />
-        <Stats />
+        {/* <Stats /> */}
         <About />
-        <Services />
-        <BackendArchitecture />
-        <WorkingProcess />
         <TechStack />
         <Projects />
+        <Services />
+        {/* <BackendArchitecture /> */}
+        {/* <WorkingProcess /> */}
         <Timeline />
-        <Contact />    
+        <Contact />
       </div>
       <Footer />
     </main>

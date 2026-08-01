@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 // ── SVG Logo Components ──────────────────────────────────────────────────────
 
 const logos = {
+
   nextjs: (
     <svg viewBox="0 0 180 180" fill="none" className="w-7 h-7">
       <mask
@@ -436,7 +437,7 @@ const TechStack = () => {
 
   return (
     <section
-      className="max-w-[1200px] mx-auto px-4 sm:px-6 py-[100px] lg:py-[140px] relative overflow-hidden"
+      className="max-w-[1200px] mx-auto px-4 sm:px-6 py-12 md:py-16 relative overflow-hidden"
       id="skills"
     >
       {/* Background glows */}
@@ -480,10 +481,9 @@ const TechStack = () => {
             key={tab}
             onClick={() => setActiveTab(tab)}
             className={`px-5 py-2 rounded-full text-[13px] font-medium border transition-all duration-200 cursor-pointer
-              ${
-                activeTab === tab
-                  ? 'bg-gradient-to-r from-blue-500 to-rose-500 border-transparent text-white shadow-lg shadow-blue-500/20'
-                  : 'bg-white/5 border-white/10 text-white/50 hover:border-blue-400/30 hover:text-white/80'
+              ${activeTab === tab
+                ? 'bg-gradient-to-r from-blue-500 to-rose-500 border-transparent text-white shadow-lg shadow-blue-500/20'
+                : 'bg-white/5 border-white/10 text-white/50 hover:border-blue-400/30 hover:text-white/80'
               }`}
           >
             {tab}
@@ -505,35 +505,27 @@ const TechStack = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: -8 }}
               transition={{ duration: 0.3, delay: i * 0.03 }}
-              className="group relative bg-white/[0.03] border border-white/[0.07] rounded-2xl p-5 flex flex-col gap-4 hover:border-white/[0.14] hover:bg-white/[0.055] transition-all duration-300 cursor-default overflow-hidden"
+              className="group relative bg-white/[0.03] border border-white/[0.07] rounded-2xl p-4 flex items-center gap-4 hover:border-white/[0.14] hover:bg-white/[0.055] transition-all duration-300 cursor-default overflow-hidden"
             >
               {/* Hover tint */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-blue-600/5 to-transparent rounded-2xl pointer-events-none" />
 
-              {/* Top row — logo + badge */}
-              <div className="flex items-start justify-between gap-2 relative z-10">
-                {/* Logo box */}
-                <div className="w-12 h-12 rounded-xl bg-white/[0.06] flex items-center justify-center shrink-0">
-                  {tech.logo}
-                </div>
+              {/* Logo box */}
+              <div className="w-12 h-12 rounded-xl bg-white/[0.06] flex items-center justify-center shrink-0 relative z-10">
+                {tech.logo}
+              </div>
 
-                {/* Category badge */}
+              {/* Info */}
+              <div className="flex flex-col items-start gap-1.5 relative z-10">
                 <span
-                  className={`text-[9px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full whitespace-nowrap ${catBadgeStyle[tech.category]}`}
+                  className={`text-[9px] font-bold tracking-widest uppercase px-2.5 py-0.5 rounded-full whitespace-nowrap ${catBadgeStyle[tech.category]}`}
                 >
                   {tech.category}
                 </span>
+                <p className="text-[15px] font-bold text-white leading-snug">
+                  {tech.name}
+                </p>
               </div>
-
-              {/* Name */}
-              <p className="text-[15px] font-bold text-white leading-snug relative z-10">
-                {tech.name}
-              </p>
-
-              {/* Description */}
-              <p className="text-[12px] text-white/40 leading-relaxed relative z-10 flex-1">
-                {tech.desc}
-              </p>
             </motion.div>
           ))}
         </AnimatePresence>

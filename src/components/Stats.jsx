@@ -111,7 +111,7 @@ const Stats = () => {
   ];
 
   return (
-    <section className="max-w-[1200px] mx-auto px-6 py-[80px] relative overflow-hidden">
+    <section className="max-w-[1200px] mx-auto px-6 py-12 md:py-16 relative overflow-hidden">
       {/* Background Subtle Glows */}
       <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-blue-600/5 blur-[100px] -z-10" />
       <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-rose-500/5 blur-[100px] -z-10" />

@@ -31,7 +31,7 @@ const BackendArchitecture = () => {
   ];
 
   return (
-    <section className="max-w-[1200px] mx-auto px-6 py-[120px] relative overflow-hidden" id="backend">
+    <section className="max-w-[1200px] mx-auto px-6 py-12 md:py-16 relative overflow-hidden" id="backend">
       {/* Cinematic Background Glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/5 rounded-full blur-[120px] -z-10 opacity-50" />
       <div className="absolute top-0 right-0 w-64 h-64 bg-rose-500/5 blur-[100px] -z-10" />

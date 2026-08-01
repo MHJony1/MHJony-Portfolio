@@ -99,7 +99,7 @@ const Timeline = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="max-w-[1200px] mx-auto px-4 sm:px-6 py-[80px] sm:py-[90px] lg:py-[110px] relative overflow-hidden" id="timeline">
+    <section ref={sectionRef} className="max-w-[1200px] mx-auto px-4 sm:px-6 py-12 md:py-16 relative overflow-hidden" id="timeline">
       {/* Background Cinematic Glow */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-blue-600/5 blur-[120px] -z-10 animate-pulse"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-rose-500/5 blur-[120px] -z-10"></div>

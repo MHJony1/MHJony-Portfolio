@@ -92,7 +92,7 @@ export default function Contact() {
   return (
     <section
       ref={sectionRef}
-      className="py-16 sm:py-section-padding px-8 relative overflow-hidden bg-background"
+      className="py-12 md:py-16 px-8 relative overflow-hidden bg-background"
       id="contact"
     >
       {/* Background Glow Effect */}

@@ -32,7 +32,7 @@ const WorkingProcess = () => {
   ];
 
   return (
-    <section className="max-w-[1200px] mx-auto px-6 py-[120px] relative overflow-hidden" id="process">
+    <section className="max-w-[1200px] mx-auto px-6 py-12 md:py-16 relative overflow-hidden" id="process">
       {/* Background Decorative Glows */}
       <div className="absolute top-1/4 -left-20 w-64 h-64 bg-blue-600/5 blur-[100px] -z-10" />
       <div className="absolute bottom-1/4 -right-20 w-64 h-64 bg-rose-500/5 blur-[100px] -z-10" />

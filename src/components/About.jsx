@@ -63,7 +63,7 @@ const About = () => {
   return (
     <section
       ref={sectionRef}
-      className="max-w-[1200px] mx-auto px-4 sm:px-6 py-[80px] sm:py-[120px] lg:py-[140px] relative overflow-hidden"
+      className="max-w-[1200px] mx-auto px-4 sm:px-6 py-12 md:py-16 lg:py-20 relative overflow-hidden"
       id="about"
     >
       {/* Background Cinematic Glows */}
@@ -114,7 +114,7 @@ const About = () => {
 
             <div className="about-content-item pt-4">
               <a
-                href="https://drive.google.com/file/d/1qPyN3eLj_OnxZ45EIpO30vvTMH_DHP6Q/view?usp=sharing"
+                href="https://drive.google.com/file/d/1-gXWGiiKTAH-Wpv_mfrWcYLokqhaxG-7/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative inline-flex items-center gap-3 px-8 py-4 bg-linear-to-r from-blue-600 to-rose-500 text-white font-bold rounded-2xl overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-lg shadow-blue-500/20"

@@ -67,7 +67,7 @@ const Hero = () => {
     <section
       id="home"
       ref={containerRef}
-      className="max-w-300 mx-auto px-4 sm:px-6 pt-[100px] lg:pt-[110px] pb-[60px] min-h-screen flex flex-col lg:grid lg:grid-cols-2 items-center gap-10 lg:gap-16 relative overflow-hidden lg:overflow-visible"
+      className="max-w-300 mx-auto px-4 sm:px-6 pt-[100px] lg:pt-[110px] pb-12 min-h-screen flex flex-col lg:grid lg:grid-cols-2 items-center gap-10 lg:gap-16 relative overflow-hidden lg:overflow-visible"
     >
       {/* Background Parallax Layer */}
       <motion.div
